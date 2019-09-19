@@ -16586,3 +16586,28 @@ body {
   color: inherit;
 }
 
+/* User register page */
+
+.register-page img.captcha {
+  cursor: pointer;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+.reg-captcha {
+  position: relative;
+}
+
+.reg-captcha .reg-captcha-input {
+  width: 50%;
+}
+
+.reg-captcha .reg-captcha-img {
+  position: absolute;
+  width: 45%;
+  height: 37px;
+  top: 0;
+  right: 5%;
+}
+
