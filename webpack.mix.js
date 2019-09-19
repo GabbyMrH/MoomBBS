@@ -11,5 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
+ //为每一次的文件修改做哈希处理。只要文件修改，哈希值就会变
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css').version();
