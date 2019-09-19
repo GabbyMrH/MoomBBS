@@ -16535,6 +16535,10 @@ body {
   font-size: 14px;
 }
 
+.card {
+  border: none;
+}
+
 /* header */
 
 .navbar-static-top {
