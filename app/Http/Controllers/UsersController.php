@@ -20,8 +20,10 @@ class UsersController extends Controller
         return view('users.edit',compact('user'));
     }
     //更新个人资料-调用了FormRequest请求验证用户提交数据
+    //ps:上传文件要在form表单添加enctype="multipart/form-data"
     public function update(UserRequest $request,User $user)
     {
+        dd($request->avatar);
         $user->update($request->all());
         return redirect()->route('users.show',$user->id)->with('success','个人资料更新成功');
     }
