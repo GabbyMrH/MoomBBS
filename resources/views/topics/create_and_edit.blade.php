@@ -66,10 +66,20 @@
   <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
 
-  <script>
+   <script>
     $(document).ready(function() {
       var editor = new Simditor({
         textarea: $('#editor'),
+        upload: {
+          url: '{{ route('topics.upload_image') }}',
+          params: {
+            _token: '{{ csrf_token() }}'
+          },
+          fileKey: 'upload_file', //服务器端获取图片的键值
+          connectionCount: 3, //最多只能同时上传 3 张图片
+          leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+        },
+        pasteImage: true,
       });
     });
   </script>
