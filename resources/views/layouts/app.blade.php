@@ -13,7 +13,7 @@
 
   <!-- Styles mix('css/app.css') 会根据 webpack.mix.js 的逻辑来生成 CSS 文件链接-->
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-
+  @yield('styles')
 </head>
 
 <body> {{--route_class() 是自定义的辅助方法,需要在 helpers.php 文件中添加此方法--}}
@@ -34,6 +34,7 @@
 
   <!-- Scripts -->
   <script src="{{ mix('js/app.js') }}"></script>
+  @yield('scripts')
 </body>
 
 </html>
