@@ -1,11 +1,20 @@
 @extends('layouts.app')
 
-@section('title', '话题列表')
+@section('title', isset($category)?$category->name:'话题列表')
 
 @section('content')
 
 <div class="row mb-5">
   <div class="col-lg-9 col-md-9 topic-list">
+      {{-- 标示当前所在的分类 --}}
+      @if (isset($category))
+        <div class="alert alert-info" role="alert">
+          {{ $category->name }} ：{{ $category->description }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
     <div class="card shadow-lg bg-white">
 
       <div class="card-header bg-transparent">
