@@ -14,10 +14,10 @@ class TopicsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-	public function index()
+	public function index(Request $request,Topic $topic)
 	{
-        //修改增加预加载，以减少请求次数，避免N+1问题
-		$topics = Topic::with('user','category')->paginate(30);
+        //$request->order 是获取 URI http://moom-bbs.test/topics?order=recent 中的 order 参数。
+        $topics = $topic->withOrder($request->order)->paginate(20);
 		return view('topics.index', compact('topics'));
 	}
 
