@@ -25,6 +25,7 @@ class TopicsController extends Controller
 		return view('topics.index', compact('topics'));
 	}
 
+    //此处使用 Laravel 的 『隐性路由模型绑定』 功能
     public function show(Topic $topic)
     {
         return view('topics.show', compact('topic'));
