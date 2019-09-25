@@ -29,7 +29,7 @@ class AddAvatarAndIntroductionToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //移除字段
-            $table->dropColumn('avatr');
+            $table->dropColumn('avatar');
             $table->dropColumn('introduction');
         });
     }
