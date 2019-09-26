@@ -35,4 +35,13 @@ class ReplyObserver
         //
     }
 
+    //删除回复后，减去话题回复数
+    public function deleted(Reply $reply)
+    {
+        $reply->topic->updateReplyCount();
+        // if ($reply->topic->reply_count > 0) {
+        //     $reply->topic->decrement('reply_count', 1);
+        // }
+    }
+
 }
