@@ -9,8 +9,9 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
   {{-- @yield表示继承此模板可以注入数据 --}}
-  <title>@yield('title', 'MoomBBS') - 基于Laravel 6.0</title>
-  <meta name="description" content="@yield('description', 'MoomBBS 猛码社区')" />
+  <title>@yield('title', 'MoomBBS') | {{setting('site_name')}}</title>
+  <meta name="description" content="@yield('description', setting('seo_description', 'MoomBBS社区。'))" />
+  <meta name="keyword" content="@yield('keyword', setting('seo_keyword', 'MoomBBS,社区,论坛,资源分享'))" />
 
   <!-- Styles mix('css/app.css') 会根据 webpack.mix.js 的逻辑来生成 CSS 文件链接-->
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
