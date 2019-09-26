@@ -15,7 +15,7 @@
           </button>
         </div>
       @endif
-    <div class="card shadow-lg bg-white">
+    <div class="card shadow bg-white">
 
       <div class="card-header bg-transparent">
           <ul class="nav nav-pills">

@@ -8,7 +8,7 @@
   <div class="row">
 
     <div class="col-lg-3 col-md-3 hidden-sm hidden-xs author-info">
-      <div class="card shadow-lg bg-white">
+      <div class="card shadow bg-white">
         <div class="card-body">
           <div class="text-center">
             作者：{{ $topic->user->name }}
@@ -26,7 +26,7 @@
     </div>
 
     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 topic-content">
-      <div class="card shadow-lg bg-white">
+      <div class="card shadow bg-white">
         <div class="card-body">
           <h1 class="text-center mt-3 mb-3">
             {{ $topic->title }}
@@ -65,7 +65,7 @@
         </div>
       </div>
        {{-- 用户回复列表 --}}
-       <div class="card topic-reply mt-4">
+       <div class="card shadow bg-white topic-reply mt-4">
         <div class="card-body">
           @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
           @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])

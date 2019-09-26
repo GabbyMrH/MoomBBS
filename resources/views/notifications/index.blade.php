@@ -5,7 +5,7 @@
 @section('content')
   <div class="container">
     <div class="col-md-10 offset-md-1">
-      <div class="card shadow-lg bg-white">
+      <div class="card shadow bg-white">
 
         <div class="card-body">
 

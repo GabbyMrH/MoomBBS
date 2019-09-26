@@ -7,7 +7,7 @@
 <div class="row">
 
   <div class="col-lg-3 col-md-3 hidden-sm hidden-xs user-info">
-    <div class="card shadow-lg bg-white">
+    <div class="card shadow bg-white">
       <img class="card-img-top" src="{{$user->avatar}}" alt="{{ $user->name }}">
       <div class="card-body">
             <h5><strong>个人简介</strong></h5>
@@ -20,15 +20,15 @@
     </div>
   </div>
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-    <div class="card shadow-lg bg-white">
+    <div class="card shadow bg-white">
       <div class="card-body">
-          <h1 class="mb-0" style="font-size:22px;">{{ $user->name }} <small>{{ $user->email }}</small></h1>
+          <h1 class="mb-0" style="font-size:22px;">{{ $user->name }} /<small>{{ $user->email }}</small></h1>
       </div>
     </div>
     <hr>
 
       {{-- 用户发布的内容 --}}
-      <div class="card ">
+      <div class="card shadow bg-white">
         <div class="card-body">
           <ul class="nav nav-tabs">
             <li class="nav-item">

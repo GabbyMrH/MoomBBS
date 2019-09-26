@@ -12,7 +12,7 @@
         </h4>
       </div>
 
-      <div class="card-body shadow-lg bg-white">
+      <div class="card-body shadow bg-white">
 
         <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
           <input type="hidden" name="_method" value="PUT">
