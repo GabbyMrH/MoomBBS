@@ -25,7 +25,7 @@ class SeedRolesAndPermissionsData extends Migration
         Permission::create(['name' => 'manage_users']);
         Permission::create(['name' => 'edit_settings']);
         //vip专享部分
-        Permission::create(['name'=>'vip_content']);
+        Permission::create(['name'=>'vip_contents']);
 
         //创建站长角色，并赋予权限
         $founder = Role::create(['name' => 'Founder']);
@@ -39,7 +39,7 @@ class SeedRolesAndPermissionsData extends Migration
 
         //创建vip角色，并赋予权限
         $vip = Role::create(['name'=>'vip']);
-        $vip->givePermissionTo('vip_content');
+        $vip->givePermissionTo('vip_contents');
 
     }
 
