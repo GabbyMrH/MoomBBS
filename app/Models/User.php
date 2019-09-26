@@ -12,6 +12,8 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
+    //自定义traits
+    use Traits\ActiveUserHelper;
     //加载权限管理
     use HasRoles;
     //加载使用 MustVerifyEmail trait

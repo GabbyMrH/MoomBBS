@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class TopicsController extends Controller
@@ -18,11 +19,12 @@ class TopicsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-	public function index(Request $request,Topic $topic)
+	public function index(Request $request,Topic $topic,User $user)
 	{
         //$request->order 是获取 URI http://moom-bbs.test/topics?order=recent 中的 order 参数。
         $topics = $topic->withOrder($request->order)->paginate(20);
-		return view('topics.index', compact('topics'));
+        $active_users = $user->getActiveUsers();
+        return view('topics.index', compact('topics', 'active_users'));
 	}
 
     //此处使用 Laravel 的 『隐性路由模型绑定』 功能
