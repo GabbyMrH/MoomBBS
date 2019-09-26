@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UsersTableSeeder::class);
         $this->call(TopicsTableSeeder::class);  //话题应在回复前执行
-		$this->call(RepliesTableSeeder::class);
+        $this->call(RepliesTableSeeder::class);
+        $this->call(LinksTableSeeder::class);
     }
 }
