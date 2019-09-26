@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-
 return array(
 
     /*
@@ -23,7 +21,7 @@ return array(
      *
      * @type string
      */
-    'title' => config('app.name'),
+    'title' => env('APP_NAME'),
 
     /*
      * 模型配置信息文件存放目录
@@ -72,7 +70,7 @@ return array(
      */
     'permission' => function () {
          // 只要是能管理内容的用户，就允许访问后台
-        return Auth::check()&&Auth::user()->can('manager_contents');
+        return Auth::check()&&Auth::user()->can('manage_contents');
     },
 
     /*
@@ -108,7 +106,7 @@ return array(
     // 控制模型数据列表页默认的显示条目
     'global_rows_per_page' => 20,
 
-   // 可选的语言，如果不为空，将会在页面顶部显示『选择语言』按钮
+    // 可选的语言，如果不为空，将会在页面顶部显示『选择语言』按钮
     'locales' => [],
 
     'custom_routes_file' => app_path('Http/routes/administrator.php'),
