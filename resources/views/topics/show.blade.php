@@ -38,6 +38,7 @@
             <i class="far fa-comment"></i>
             {{ $topic->reply_count }}
           </div>
+          <hr>
 
           <div class="topic-body mt-4 mb-4">
             {!! $topic->body !!}
