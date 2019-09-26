@@ -31,11 +31,12 @@ class TopicObserver
 
     }
 
-    //
+    //保存
     public function saved(Topic $topic)
     {
         // 如 slug 字段无内容，即使用翻译器对 title 进行翻译
-        if ( ! $topic->slug) {
+        //is_Dirty() 查询模型类是否已对其进行编辑，或者未保存模型
+        if ( ! $topic->slug || $topic->isDirty('title')) {
 
             // 推送任务到队列
             dispatch(new TranslateSlug($topic));
