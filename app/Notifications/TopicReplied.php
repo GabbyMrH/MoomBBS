@@ -8,7 +8,8 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class TopicReplied extends Notification
+//检测 ShouldQueue 接口并自动将通知的发送放入队列中
+class TopicReplied extends Notification implements ShouldQueue
 {
     use Queueable;
     public $reply;
@@ -36,7 +37,7 @@ class TopicReplied extends Notification
         //return ['mail'];
 
         // 开启通知的频道
-        return ['database'];
+        return ['database','mail'];
 
     }
     //因为使用数据库通知频道，我们需要定义 toDatabase()。
@@ -65,13 +66,19 @@ class TopicReplied extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    // public function toMail($notifiable)
-    // {
-    //     return (new MailMessage)
-    //                 ->line('The introduction to the notification.')
-    //                 ->action('Notification Action', url('/'))
-    //                 ->line('Thank you for using our application!');
-    // }
+    public function toMail($notifiable)
+    {
+        $topic = $this->reply->topic;
+        $url = $this->reply->topic->link(['#reply' . $this->reply->id]);
+        $content = [
+            'topic_title'=>$topic->title
+        ];
+
+        return (new MailMessage)
+                    ->line('你的话题有新回复！')
+                    ->line('话题名称:'.$content['topic_title'])
+                    ->action('查看回复', $url);
+    }
 
     /**
      * Get the array representation of the notification.
