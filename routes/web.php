@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','PagesController@root')->name('root');
+Route::get('/','TopicsController@index')->name('root');
 
 // Laravel 的用户认证路由
 //Auth::routes();
